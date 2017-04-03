@@ -1,0 +1,995 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/sockjs/sockjs-node"
+
+    >sockjs (v0.3.18)</a>
+</h1>
+<h4>SockJS-node is a server counterpart of SockJS-client a JavaScript library that provides a WebSocket-like object in the browser. SockJS gives you a coherent, cross-browser, Javascript API which creates a low latency, full duplex, cross-domain communication</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sockjs">module sockjs</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sockjs.createServer">
+            function <span class="apidocSignatureSpan">sockjs.</span>createServer
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sockjs.listen">
+            function <span class="apidocSignatureSpan">sockjs.</span>listen
+            <span class="apidocSignatureSpan">(http_server, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sockjs.</span>transport</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sockjs.</span>utils</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sockjs.</span>webjs</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sockjs.transport">module sockjs.transport</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sockjs.transport.GenericReceiver">
+            function <span class="apidocSignatureSpan">sockjs.transport.</span>GenericReceiver
+            <span class="apidocSignatureSpan">(thingy)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sockjs.transport.ResponseReceiver">
+            function <span class="apidocSignatureSpan">sockjs.transport.</span>ResponseReceiver
+            <span class="apidocSignatureSpan">(request, response, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sockjs.transport.Session">
+            function <span class="apidocSignatureSpan">sockjs.transport.</span>Session
+            <span class="apidocSignatureSpan">(session_id1, server)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sockjs.transport.SockJSConnection">
+            function <span class="apidocSignatureSpan">sockjs.transport.</span>SockJSConnection
+            <span class="apidocSignatureSpan">(_session)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sockjs.transport.Transport">
+            function <span class="apidocSignatureSpan">sockjs.transport.</span>Transport
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sockjs.transport.register">
+            function <span class="apidocSignatureSpan">sockjs.transport.</span>register
+            <span class="apidocSignatureSpan">(req, server, receiver)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sockjs.transport.registerNoSession">
+            function <span class="apidocSignatureSpan">sockjs.transport.</span>registerNoSession
+            <span class="apidocSignatureSpan">(req, server, receiver)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sockjs.utils">module sockjs.utils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sockjs.utils.array_intersection">
+            function <span class="apidocSignatureSpan">sockjs.utils.</span>array_intersection
+            <span class="apidocSignatureSpan">(arr_a, arr_b)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sockjs.utils.buffer_concat">
+            function <span class="apidocSignatureSpan">sockjs.utils.</span>buffer_concat
+            <span class="apidocSignatureSpan">(buf_a, buf_b)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sockjs.utils.escape_selected">
+            function <span class="apidocSignatureSpan">sockjs.utils.</span>escape_selected
+            <span class="apidocSignatureSpan">(str, chars)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sockjs.utils.md5_hex">
+            function <span class="apidocSignatureSpan">sockjs.utils.</span>md5_hex
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sockjs.utils.objectExtend">
+            function <span class="apidocSignatureSpan">sockjs.utils.</span>objectExtend
+            <span class="apidocSignatureSpan">(dst, src)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sockjs.utils.overshadowListeners">
+            function <span class="apidocSignatureSpan">sockjs.utils.</span>overshadowListeners
+            <span class="apidocSignatureSpan">(ee, event, handler)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sockjs.utils.parseCookie">
+            function <span class="apidocSignatureSpan">sockjs.utils.</span>parseCookie
+            <span class="apidocSignatureSpan">(cookie_header)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sockjs.utils.quote">
+            function <span class="apidocSignatureSpan">sockjs.utils.</span>quote
+            <span class="apidocSignatureSpan">(string)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sockjs.utils.random32">
+            function <span class="apidocSignatureSpan">sockjs.utils.</span>random32
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sockjs.utils.sha1_base64">
+            function <span class="apidocSignatureSpan">sockjs.utils.</span>sha1_base64
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sockjs.utils.timeout_chain">
+            function <span class="apidocSignatureSpan">sockjs.utils.</span>timeout_chain
+            <span class="apidocSignatureSpan">(arr)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sockjs.webjs">module sockjs.webjs</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sockjs.webjs.GenericApp">
+            function <span class="apidocSignatureSpan">sockjs.webjs.</span>GenericApp
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sockjs.webjs.generateHandler">
+            function <span class="apidocSignatureSpan">sockjs.webjs.</span>generateHandler
+            <span class="apidocSignatureSpan">(app, dispatcher)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sockjs" id="apidoc.module.sockjs">module sockjs</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sockjs.createServer" id="apidoc.element.sockjs.createServer">
+        function <span class="apidocSignatureSpan">sockjs.</span>createServer
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createServer = function (options) {
+  return new Server(options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+A simplified echo SockJS server could look more or less like:
+
+```javascript
+var http = require(&#x27;http&#x27;);
+var sockjs = require(&#x27;sockjs&#x27;);
+
+var echo = sockjs.<span class="apidocCodeKeywordSpan">createServer</span>({ sockjs_url: &#x27;http://cdn.jsdelivr.net/sockjs/1.0
+.1/sockjs.min.js&#x27; });
+echo.on(&#x27;connection&#x27;, function(conn) {
+    conn.on(&#x27;data&#x27;, function(message) {
+        conn.write(message);
+    });
+    conn.on(&#x27;close&#x27;, function() {});
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sockjs.listen" id="apidoc.element.sockjs.listen">
+        function <span class="apidocSignatureSpan">sockjs.</span>listen
+        <span class="apidocSignatureSpan">(http_server, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">listen = function (http_server, options) {
+  var srv;
+  srv = exports.createServer(options);
+  if (http_server) {
+    srv.installHandlers(http_server);
+  }
+  return srv;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        conn.write(message);
+    });
+    conn.on(&#x27;close&#x27;, function() {});
+});
+
+var server = http.createServer();
+echo.installHandlers(server, {prefix:&#x27;/echo&#x27;});
+server.<span class="apidocCodeKeywordSpan">listen</span>(9999, &#x27;0.0.0.0&#x27;);
+```
+
+(Take look at
+[examples](https://github.com/sockjs/sockjs-node/tree/master/examples/echo)
+directory for a complete version.)
+
+Subscribe to
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sockjs.transport" id="apidoc.module.sockjs.transport">module sockjs.transport</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sockjs.transport.GenericReceiver" id="apidoc.element.sockjs.transport.GenericReceiver">
+        function <span class="apidocSignatureSpan">sockjs.transport.</span>GenericReceiver
+        <span class="apidocSignatureSpan">(thingy)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function GenericReceiver(thingy) {
+  this.thingy = thingy;
+  this.setUp(this.thingy);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sockjs.transport.ResponseReceiver" id="apidoc.element.sockjs.transport.ResponseReceiver">
+        function <span class="apidocSignatureSpan">sockjs.transport.</span>ResponseReceiver
+        <span class="apidocSignatureSpan">(request, response, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ResponseReceiver(request, response, options) {
+  var x;
+  this.request = request;
+  this.response = response;
+  this.options = options;
+  this.curr_response_size = 0;
+  try {
+    this.request.connection.setKeepAlive(true, 5000);
+  } catch (error) {
+    x = error;
+  }
+  ResponseReceiver.__super__.constructor.call(this, this.request.connection);
+  if (this.max_response_size === void 0) {
+    this.max_response_size = this.options.response_limit;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sockjs.transport.Session" id="apidoc.element.sockjs.transport.Session">
+        function <span class="apidocSignatureSpan">sockjs.transport.</span>Session
+        <span class="apidocSignatureSpan">(session_id1, server)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Session(session_id1, server) {
+  this.session_id = session_id1;
+  this.heartbeat_delay = server.options.heartbeat_delay;
+  this.disconnect_delay = server.options.disconnect_delay;
+  this.prefix = server.options.prefix;
+  this.send_buffer = [];
+  this.is_closing = false;
+  this.readyState = Transport.CONNECTING;
+  if (this.session_id) {
+    MAP[this.session_id] = this;
+  }
+  this.timeout_cb = (function(_this) {
+    return function() {
+      return _this.didTimeout();
+    };
+  })(this);
+  this.to_tref = setTimeout(this.timeout_cb, this.disconnect_delay);
+  this.connection = new SockJSConnection(this);
+  this.emit_open = (function(_this) {
+    return function() {
+      _this.emit_open = null;
+      return server.emit(&#x27;connection&#x27;, _this.connection);
+    };
+  })(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sockjs.transport.SockJSConnection" id="apidoc.element.sockjs.transport.SockJSConnection">
+        function <span class="apidocSignatureSpan">sockjs.transport.</span>SockJSConnection
+        <span class="apidocSignatureSpan">(_session)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SockJSConnection(_session) {
+  this._session = _session;
+  this.id = uuid.v4();
+  this.headers = {};
+  this.prefix = this._session.prefix;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+this.ws = ws1;
+this.prefix = server.options.prefix;
+this.readyState = Transport.OPEN;
+this.recv = {
+  connection: conn,
+  protocol: &#x22;websocket-raw&#x22;
+};
+this.connection = new transport.<span class="apidocCodeKeywordSpan">SockJSConnection</span>(this);
+this.decorateConnection(req);
+server.emit(&#x27;connection&#x27;, this.connection);
+this._end_cb = (function(_this) {
+  return function() {
+    return _this.didClose();
+  };
+})(this);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sockjs.transport.Transport" id="apidoc.element.sockjs.transport.Transport">
+        function <span class="apidocSignatureSpan">sockjs.transport.</span>Transport
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Transport() {}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sockjs.transport.register" id="apidoc.element.sockjs.transport.register">
+        function <span class="apidocSignatureSpan">sockjs.transport.</span>register
+        <span class="apidocSignatureSpan">(req, server, receiver)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">register = function (req, server, receiver) {
+  return register(req, server, req.session, receiver);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      res.setHeader(&#x27;Vary&#x27;, &#x27;Origin&#x27;);
+      headers = req.headers[&#x27;access-control-request-headers&#x27;];
+      if (headers) {
+        res.setHeader(&#x27;Access-Control-Allow-Headers&#x27;, headers);
+      }
+      res.writeHead(200);
+      res.write(&#x27;\r\n&#x27;);
+      transport.<span class="apidocCodeKeywordSpan">register</span>(req, this, new EventSourceReceiver(req, res, this.options));
+      return true;
+    }
+  };
+
+}).call(this);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sockjs.transport.registerNoSession" id="apidoc.element.sockjs.transport.registerNoSession">
+        function <span class="apidocSignatureSpan">sockjs.transport.</span>registerNoSession
+        <span class="apidocSignatureSpan">(req, server, receiver)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">registerNoSession = function (req, server, receiver) {
+  return register(req, server, void 0, receiver);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+},
+sockjs_websocket: function(req, connection, head) {
+  var ws;
+  this._websocket_check(req, connection, head);
+  ws = new FayeWebsocket(req, connection, head, null, this.options.faye_server_options);
+  ws.onopen = (function(_this) {
+    return function() {
+      return transport.<span class="apidocCodeKeywordSpan">registerNoSession</span>(req, _this, new WebSocketReceiver(ws, connection
+));
+    };
+  })(this);
+  return true;
+},
+raw_websocket: function(req, connection, head) {
+  var ver, ws;
+  this._websocket_check(req, connection, head);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sockjs.utils" id="apidoc.module.sockjs.utils">module sockjs.utils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sockjs.utils.array_intersection" id="apidoc.element.sockjs.utils.array_intersection">
+        function <span class="apidocSignatureSpan">sockjs.utils.</span>array_intersection
+        <span class="apidocSignatureSpan">(arr_a, arr_b)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">array_intersection = function (arr_a, arr_b) {
+  var a, j, len, r;
+  r = [];
+  for (j = 0, len = arr_a.length; j &#x3c; len; j++) {
+    a = arr_a[j];
+    if (arr_b.indexOf(a) !== -1) {
+      r.push(a);
+    }
+  }
+  return r;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sockjs.utils.buffer_concat" id="apidoc.element.sockjs.utils.buffer_concat">
+        function <span class="apidocSignatureSpan">sockjs.utils.</span>buffer_concat
+        <span class="apidocSignatureSpan">(buf_a, buf_b)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">buffer_concat = function (buf_a, buf_b) {
+  var dst;
+  dst = new Buffer(buf_a.length + buf_b.length);
+  buf_a.copy(dst);
+  buf_b.copy(dst, buf_a.length);
+  return dst;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+GenericApp.prototype.expect_form = function(req, res, _data, next_filter) {
+  var data;
+  data = new Buffer(0);
+  req.on(&#x27;data&#x27;, (function(_this) {
+    return function(d) {
+      return data = utils.<span class="apidocCodeKeywordSpan">buffer_concat</span>(data, new Buffer(d, &#x27;binary&#x27;));
+    };
+  })(this));
+  req.on(&#x27;end&#x27;, (function(_this) {
+    return function() {
+      var q;
+      data = data.toString(&#x27;utf-8&#x27;);
+      switch ((req.headers[&#x27;content-type&#x27;] || &#x27;&#x27;).split(&#x27;;&#x27;)[0]) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sockjs.utils.escape_selected" id="apidoc.element.sockjs.utils.escape_selected">
+        function <span class="apidocSignatureSpan">sockjs.utils.</span>escape_selected
+        <span class="apidocSignatureSpan">(str, chars)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">escape_selected = function (str, chars) {
+  var c, i, j, l, len, map, parts, r, ref, v;
+  map = {};
+  chars = &#x27;%&#x27; + chars;
+  for (j = 0, len = chars.length; j &#x3c; len; j++) {
+    c = chars[j];
+    map[c] = escape(c);
+  }
+  r = new RegExp(&#x27;([&#x27; + chars + &#x27;])&#x27;);
+  parts = str.split(r);
+  for (i = l = 0, ref = parts.length; 0 &#x3c;= ref ? l &#x3c; ref : l &#x3e; ref; i = 0 &#x3c;= ref ? ++l : --l) {
+    v = parts[i];
+    if (v.length === 1 &#x26;&#x26; v in map) {
+      parts[i] = map[v];
+    }
+  }
+  return parts.join(&#x27;&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    return EventSourceReceiver.__super__.constructor.apply(this, arguments);
+  }
+
+  EventSourceReceiver.prototype.protocol = &#x22;eventsource&#x22;;
+
+  EventSourceReceiver.prototype.doSendFrame = function(payload) {
+    var data;
+    data = [&#x27;data: &#x27;, utils.<span class="apidocCodeKeywordSpan">escape_selected</span>(payload, &#x27;\r\n\x00&#x27;), &#
+x27;\r\n\r\n&#x27;];
+    return EventSourceReceiver.__super__.doSendFrame.call(this, data.join(&#x27;&#x27;));
+  };
+
+  return EventSourceReceiver;
+
+})(transport.ResponseReceiver);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sockjs.utils.md5_hex" id="apidoc.element.sockjs.utils.md5_hex">
+        function <span class="apidocSignatureSpan">sockjs.utils.</span>md5_hex
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">md5_hex = function (data) {
+  return crypto.createHash(&#x27;md5&#x27;).update(data).digest(&#x27;hex&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+context = {
+  &#x27;{{ sockjs_url }}&#x27;: this.options.sockjs_url
+};
+content = iframe_template;
+for (k in context) {
+  content = content.replace(k, context[k]);
+}
+quoted_md5 = &#x27;&#x22;&#x27; + utils.<span class="apidocCodeKeywordSpan">md5_hex</span>(content) + &#x27;&#x22;&#x27;;
+if (&#x27;if-none-match&#x27; in req.headers &#x26;&#x26; req.headers[&#x27;if-none-match&#x27;] === quoted_md5) {
+  res.statusCode = 304;
+  return &#x27;&#x27;;
+}
+res.setHeader(&#x27;Content-Type&#x27;, &#x27;text/html; charset=UTF-8&#x27;);
+res.setHeader(&#x27;ETag&#x27;, quoted_md5);
+return content;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sockjs.utils.objectExtend" id="apidoc.element.sockjs.utils.objectExtend">
+        function <span class="apidocSignatureSpan">sockjs.utils.</span>objectExtend
+        <span class="apidocSignatureSpan">(dst, src)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">objectExtend = function (dst, src) {
+  var k;
+  for (k in src) {
+    if (src.hasOwnProperty(k)) {
+      dst[k] = src[k];
+    }
+  }
+  return dst;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    res.writeHead = function(status, user_headers) {
+var k, r, x;
+if (user_headers == null) {
+  user_headers = {};
+}
+r = [];
+r.push(&#x27;HTTP/&#x27; + req.httpVersion + &#x27; &#x27; + status + &#x27; &#x27; + http.STATUS_CODES[status]);
+utils.<span class="apidocCodeKeywordSpan">objectExtend</span>(headers, user_headers);
+for (k in headers) {
+  r.push(k + &#x27;: &#x27; + headers[k]);
+}
+r = r.concat([&#x27;&#x27;, &#x27;&#x27;]);
+try {
+  res.write(r.join(&#x27;\r\n&#x27;));
+} catch (error1) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sockjs.utils.overshadowListeners" id="apidoc.element.sockjs.utils.overshadowListeners">
+        function <span class="apidocSignatureSpan">sockjs.utils.</span>overshadowListeners
+        <span class="apidocSignatureSpan">(ee, event, handler)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">overshadowListeners = function (ee, event, handler) {
+  var new_handler, old_listeners;
+  old_listeners = ee.listeners(event).slice(0);
+  ee.removeAllListeners(event);
+  new_handler = function() {
+    var j, len, listener;
+    if (handler.apply(this, arguments) !== true) {
+      for (j = 0, len = old_listeners.length; j &#x3c; len; j++) {
+        listener = old_listeners[j];
+        listener.apply(this, arguments);
+      }
+      return false;
+    }
+    return true;
+  };
+  return ee.addListener(event, new_handler);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sockjs.utils.parseCookie" id="apidoc.element.sockjs.utils.parseCookie">
+        function <span class="apidocSignatureSpan">sockjs.utils.</span>parseCookie
+        <span class="apidocSignatureSpan">(cookie_header)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parseCookie = function (cookie_header) {
+  var cookie, cookies, j, len, parts, ref;
+  cookies = {};
+  if (cookie_header) {
+    ref = cookie_header.split(&#x27;;&#x27;);
+    for (j = 0, len = ref.length; j &#x3c; len; j++) {
+      cookie = ref[j];
+      parts = cookie.split(&#x27;=&#x27;);
+      cookies[parts[0].trim()] = (parts[1] || &#x27;&#x27;).trim();
+    }
+  }
+  return cookies;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sockjs.utils.quote" id="apidoc.element.sockjs.utils.quote">
+        function <span class="apidocSignatureSpan">sockjs.utils.</span>quote
+        <span class="apidocSignatureSpan">(string)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">quote = function (string) {
+  var quoted;
+  quoted = JSON.stringify(string);
+  escapable.lastIndex = 0;
+  if (!escapable.test(quoted)) {
+    return quoted;
+  }
+  return quoted.replace(escapable, function(a) {
+    return lookup[a];
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+GenericReceiver.prototype.doSendBulk = function(messages) {
+  var m, q_msgs;
+  q_msgs = (function() {
+    var i, len, results;
+    results = [];
+    for (i = 0, len = messages.length; i &#x3c; len; i++) {
+      m = messages[i];
+      results.push(utils.<span class="apidocCodeKeywordSpan">quote</span>(m));
+    }
+    return results;
+  })();
+  return this.doSendFrame(&#x27;a&#x27; + &#x27;[&#x27; + q_msgs.join(&#x27;,&#x27;) + &#x27;]&#x27;);
+};
+
+GenericReceiver.prototype.heartbeat = function() {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sockjs.utils.random32" id="apidoc.element.sockjs.utils.random32">
+        function <span class="apidocSignatureSpan">sockjs.utils.</span>random32
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">random32 = function () {
+  var foo, v;
+  foo = crypto.randomBytes(4);
+  v = [foo[0], foo[1], foo[2], foo[3]];
+  return v[0] + (v[1] * 256) + (v[2] * 256 * 256) + (v[3] * 256 * 256 * 256);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sockjs.utils.sha1_base64" id="apidoc.element.sockjs.utils.sha1_base64">
+        function <span class="apidocSignatureSpan">sockjs.utils.</span>sha1_base64
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sha1_base64 = function (data) {
+  return crypto.createHash(&#x27;sha1&#x27;).update(data).digest(&#x27;base64&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sockjs.utils.timeout_chain" id="apidoc.element.sockjs.utils.timeout_chain">
+        function <span class="apidocSignatureSpan">sockjs.utils.</span>timeout_chain
+        <span class="apidocSignatureSpan">(arr)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">timeout_chain = function (arr) {
+  var fun, ref, timeout, user_fun;
+  arr = arr.slice(0);
+  if (!arr.length) {
+    return;
+  }
+  ref = arr.shift(), timeout = ref[0], user_fun = ref[1];
+  fun = (function(_this) {
+    return function() {
+      user_fun();
+      return exports.timeout_chain(arr);
+    };
+  })(this);
+  return setTimeout(fun, timeout);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (!arr.length) {
+    return;
+  }
+  ref = arr.shift(), timeout = ref[0], user_fun = ref[1];
+  fun = (function(_this) {
+    return function() {
+      user_fun();
+      return exports.<span class="apidocCodeKeywordSpan">timeout_chain</span>(arr);
+    };
+  })(this);
+  return setTimeout(fun, timeout);
+};
+
+exports.objectExtend = function(dst, src) {
+  var k;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sockjs.webjs" id="apidoc.module.sockjs.webjs">module sockjs.webjs</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sockjs.webjs.GenericApp" id="apidoc.element.sockjs.webjs.GenericApp">
+        function <span class="apidocSignatureSpan">sockjs.webjs.</span>GenericApp
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function GenericApp() {}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sockjs.webjs.generateHandler" id="apidoc.element.sockjs.webjs.generateHandler">
+        function <span class="apidocSignatureSpan">sockjs.webjs.</span>generateHandler
+        <span class="apidocSignatureSpan">(app, dispatcher)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">generateHandler = function (app, dispatcher) {
+  return function(req, res, head) {
+    var allowed_methods, found, funs, i, j, l, len, m, method, path, ref, row;
+    if (typeof res.writeHead === &#x22;undefined&#x22;) {
+      fake_response(req, res);
+    }
+    utils.objectExtend(req, url.parse(req.url, true));
+    req.start_date = new Date();
+    found = false;
+    allowed_methods = [];
+    for (j = 0, len = dispatcher.length; j &#x3c; len; j++) {
+      row = dispatcher[j];
+      method = row[0], path = row[1], funs = row[2];
+      if (path.constructor !== Array) {
+        path = [path];
+      }
+      m = req.pathname.match(path[0]);
+      if (!m) {
+        continue;
+      }
+      if (!req.method.match(new RegExp(method))) {
+        allowed_methods.push(method);
+        continue;
+      }
+      for (i = l = 1, ref = path.length; 1 &#x3c;= ref ? l &#x3c; ref : l &#x3e; ref; i = 1 &#x3c;= ref ? ++l : --l) {
+        req[path[i]] = m[i];
+      }
+      funs = funs.slice(0);
+      funs.push(&#x27;log_request&#x27;);
+      req.next_filter = function(data) {
+        return execute_request(app, funs, req, res, data);
+      };
+      req.next_filter(head);
+      found = true;
+      break;
+    }
+    if (!found) {
+      if (allowed_methods.length !== 0) {
+        app[&#x27;handle_405&#x27;](req, res, allowed_methods);
+      } else {
+        app[&#x27;handle_404&#x27;](req, res);
+      }
+      app[&#x27;log_request&#x27;](req, res, true);
+    }
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>

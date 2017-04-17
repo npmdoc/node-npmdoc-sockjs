@@ -99,6 +99,32 @@
 
     </ol></li>
 
+    <li class="apidocModuleLi"><a href="#apidoc.module.sockjs.createServer">module sockjs.createServer</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sockjs.createServer.createServer">
+            function <span class="apidocSignatureSpan">sockjs.</span>createServer
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sockjs.listen">module sockjs.listen</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sockjs.listen.listen">
+            function <span class="apidocSignatureSpan">sockjs.</span>listen
+            <span class="apidocSignatureSpan">(http_server, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
     <li class="apidocModuleLi"><a href="#apidoc.module.sockjs.transport">module sockjs.transport</a><ol>
 
         <li>
@@ -367,6 +393,83 @@ Subscribe to
 
 
 
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sockjs.createServer" id="apidoc.module.sockjs.createServer">module sockjs.createServer</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sockjs.createServer.createServer" id="apidoc.element.sockjs.createServer.createServer">
+        function <span class="apidocSignatureSpan">sockjs.</span>createServer
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createServer = function (options) {
+  return new Server(options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+A simplified echo SockJS server could look more or less like:
+
+```javascript
+var http = require(&#x27;http&#x27;);
+var sockjs = require(&#x27;sockjs&#x27;);
+
+var echo = sockjs.<span class="apidocCodeKeywordSpan">createServer</span>({ sockjs_url: &#x27;http://cdn.jsdelivr.net/sockjs/1.0
+.1/sockjs.min.js&#x27; });
+echo.on(&#x27;connection&#x27;, function(conn) {
+    conn.on(&#x27;data&#x27;, function(message) {
+        conn.write(message);
+    });
+    conn.on(&#x27;close&#x27;, function() {});
+});
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sockjs.listen" id="apidoc.module.sockjs.listen">module sockjs.listen</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sockjs.listen.listen" id="apidoc.element.sockjs.listen.listen">
+        function <span class="apidocSignatureSpan">sockjs.</span>listen
+        <span class="apidocSignatureSpan">(http_server, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">listen = function (http_server, options) {
+  var srv;
+  srv = exports.createServer(options);
+  if (http_server) {
+    srv.installHandlers(http_server);
+  }
+  return srv;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        conn.write(message);
+    });
+    conn.on(&#x27;close&#x27;, function() {});
+});
+
+var server = http.createServer();
+echo.installHandlers(server, {prefix:&#x27;/echo&#x27;});
+server.<span class="apidocCodeKeywordSpan">listen</span>(9999, &#x27;0.0.0.0&#x27;);
+```
+
+(Take look at
+[examples](https://github.com/sockjs/sockjs-node/tree/master/examples/echo)
+directory for a complete version.)
+
+Subscribe to
+...</pre></li>
+    </ul>
 
 
 </div>

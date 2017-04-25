@@ -1,7 +1,7 @@
 {
     "author": "kai zhu <kaizhu256@gmail.com>",
     "buildNpmdoc": "sockjs",
-    "description": "api documentation for [sockjs (v0.3.18)](https://github.com/sockjs/sockjs-node) [![npm package](https://img.shields.io/npm/v/npmdoc-sockjs.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-sockjs) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-sockjs.svg)](https://travis-ci.org/npmdoc/node-npmdoc-sockjs)",
+    "description": "#### basic api documentation for  [sockjs (v0.3.18)](https://github.com/sockjs/sockjs-node)  [![npm package](https://img.shields.io/npm/v/npmdoc-sockjs.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-sockjs) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-sockjs.svg)](https://travis-ci.org/npmdoc/node-npmdoc-sockjs)",
     "devDependencies": {
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
         "sockjs": "*",

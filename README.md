@@ -1,4 +1,7 @@
-# api documentation for  [sockjs (v0.3.18)](https://github.com/sockjs/sockjs-node)  [![npm package](https://img.shields.io/npm/v/npmdoc-sockjs.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-sockjs) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-sockjs.svg)](https://travis-ci.org/npmdoc/node-npmdoc-sockjs)
+# npmdoc-sockjs
+
+#### basic api documentation for  [sockjs (v0.3.18)](https://github.com/sockjs/sockjs-node)  [![npm package](https://img.shields.io/npm/v/npmdoc-sockjs.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-sockjs) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-sockjs.svg)](https://travis-ci.org/npmdoc/node-npmdoc-sockjs)
+
 #### SockJS-node is a server counterpart of SockJS-client a JavaScript library that provides a WebSocket-like object in the browser. SockJS gives you a coherent, cross-browser, Javascript API which creates a low latency, full duplex, cross-domain communication
 
 [![NPM](https://nodei.co/npm/sockjs.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/sockjs)
@@ -77,7 +80,8 @@
         "url": "git+https://github.com/sockjs/sockjs-node.git"
     },
     "scripts": {},
-    "version": "0.3.18"
+    "version": "0.3.18",
+    "bin": {}
 }
 ```
 

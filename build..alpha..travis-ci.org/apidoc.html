@@ -81,6 +81,12 @@
 
         <li>
 
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan"></span>sockjs</span>
+
+        </li>
+
+        <li>
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sockjs.</span>transport</span>
 
         </li>
@@ -99,25 +105,21 @@
 
     </ol></li>
 
-    <li class="apidocModuleLi"><a href="#apidoc.module.sockjs.createServer">module sockjs.createServer</a><ol>
+    <li class="apidocModuleLi"><a href="#apidoc.module.sockjs.sockjs">module sockjs.sockjs</a><ol>
 
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.sockjs.createServer.createServer">
-            function <span class="apidocSignatureSpan">sockjs.</span>createServer
+            <a class="apidocElementLiA" href="#apidoc.element.sockjs.sockjs.createServer">
+            function <span class="apidocSignatureSpan">sockjs.sockjs.</span>createServer
             <span class="apidocSignatureSpan">(options)</span>
             </a>
 
         </li>
 
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.sockjs.listen">module sockjs.listen</a><ol>
-
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.sockjs.listen.listen">
-            function <span class="apidocSignatureSpan">sockjs.</span>listen
+            <a class="apidocElementLiA" href="#apidoc.element.sockjs.sockjs.listen">
+            function <span class="apidocSignatureSpan">sockjs.sockjs.</span>listen
             <span class="apidocSignatureSpan">(http_server, options)</span>
             </a>
 
@@ -395,15 +397,17 @@ Subscribe to
 
 
 
+
+
 </div>
 
 <div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.sockjs.createServer" id="apidoc.module.sockjs.createServer">module sockjs.createServer</a></h1>
+<h1><a href="#apidoc.module.sockjs.sockjs" id="apidoc.module.sockjs.sockjs">module sockjs.sockjs</a></h1>
 
 
     <h2>
-        <a href="#apidoc.element.sockjs.createServer.createServer" id="apidoc.element.sockjs.createServer.createServer">
-        function <span class="apidocSignatureSpan">sockjs.</span>createServer
+        <a href="#apidoc.element.sockjs.sockjs.createServer" id="apidoc.element.sockjs.sockjs.createServer">
+        function <span class="apidocSignatureSpan">sockjs.sockjs.</span>createServer
         <span class="apidocSignatureSpan">(options)</span>
         </a>
     </h2>
@@ -431,15 +435,10 @@ echo.on(&#x27;connection&#x27;, function(conn) {
     </ul>
 
 
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.sockjs.listen" id="apidoc.module.sockjs.listen">module sockjs.listen</a></h1>
-
 
     <h2>
-        <a href="#apidoc.element.sockjs.listen.listen" id="apidoc.element.sockjs.listen.listen">
-        function <span class="apidocSignatureSpan">sockjs.</span>listen
+        <a href="#apidoc.element.sockjs.sockjs.listen" id="apidoc.element.sockjs.sockjs.listen">
+        function <span class="apidocSignatureSpan">sockjs.sockjs.</span>listen
         <span class="apidocSignatureSpan">(http_server, options)</span>
         </a>
     </h2>
@@ -824,21 +823,20 @@ return content;
   return dst;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    res.writeHead = function(status, user_headers) {
-var k, r, x;
-if (user_headers == null) {
-  user_headers = {};
-}
-r = [];
-r.push(&#x27;HTTP/&#x27; + req.httpVersion + &#x27; &#x27; + status + &#x27; &#x27; + http.STATUS_CODES[status]);
-utils.<span class="apidocCodeKeywordSpan">objectExtend</span>(headers, user_headers);
-for (k in headers) {
-  r.push(k + &#x27;: &#x27; + headers[k]);
-}
-r = r.concat([&#x27;&#x27;, &#x27;&#x27;]);
-try {
-  res.write(r.join(&#x27;\r\n&#x27;));
-} catch (error1) {
+    return this.options.log(severity, line);
+  };
+
+  return App;
+
+})(webjs.GenericApp);
+
+utils.<span class="apidocCodeKeywordSpan">objectExtend</span>(App.prototype, iframe.app);
+
+utils.objectExtend(App.prototype, chunking_test.app);
+
+utils.objectExtend(App.prototype, trans_websocket.app);
+
+utils.objectExtend(App.prototype, trans_jsonp.app);
 ...</pre></li>
     </ul>
 
@@ -868,7 +866,23 @@ try {
   };
   return ee.addListener(event, new_handler);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    };
+  })(this));
+};
+
+Server.prototype.installHandlers = function(http_server, handler_options) {
+  var handler;
+  handler = this.listener(handler_options).getHandler();
+  utils.<span class="apidocCodeKeywordSpan">overshadowListeners</span>(http_server, &#x27;request&#x27;, handler);
+  utils.overshadowListeners(http_server, &#x27;upgrade&#x27;, handler);
+  return true;
+};
+
+Server.prototype.middleware = function(handler_options) {
+  var handler;
+  handler = this.listener(handler_options).getHandler();
+...</pre></li>
     </ul>
 
 
@@ -893,7 +907,23 @@ try {
   }
   return cookies;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+App.prototype.disabled_transport = function(req, res, data) {
+  return this.handle_404(req, res, data);
+};
+
+App.prototype.h_sid = function(req, res, data) {
+  var jsid;
+  req.cookies = utils.<span class="apidocCodeKeywordSpan">parseCookie</span>(req.headers.cookie);
+  if (typeof this.options.jsessionid === &#x27;function&#x27;) {
+    this.options.jsessionid(req, res);
+  } else if (this.options.jsessionid &#x26;&#x26; res.setHeader) {
+    jsid = req.cookies[&#x27;JSESSIONID&#x27;] || &#x27;dummy&#x27;;
+    res.setHeader(&#x27;Set-Cookie&#x27;, &#x27;JSESSIONID=&#x27; + jsid + &#x27;; path=/&#x27;);
+  }
+  return data;
+...</pre></li>
     </ul>
 
 
@@ -950,7 +980,23 @@ GenericReceiver.prototype.heartbeat = function() {
   v = [foo[0], foo[1], foo[2], foo[3]];
   return v[0] + (v[1] * 256) + (v[2] * 256 * 256) + (v[3] * 256 * 256 * 256);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+},
+info: function(req, res, _) {
+  var info;
+  info = {
+    websocket: this.options.websocket,
+    origins: [&#x27;*:*&#x27;],
+    cookie_needed: !!this.options.jsessionid,
+    entropy: utils.<span class="apidocCodeKeywordSpan">random32</span>()
+  };
+  if (typeof this.options.base_url === &#x27;function&#x27;) {
+    info.base_url = this.options.base_url();
+  } else if (this.options.base_url) {
+    info.base_url = this.options.base_url;
+  }
+  res.setHeader(&#x27;Content-Type&#x27;, &#x27;application/json; charset=UTF-8&#x27;);
+...</pre></li>
     </ul>
 
 
@@ -993,21 +1039,21 @@ GenericReceiver.prototype.heartbeat = function() {
   return setTimeout(fun, timeout);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-  if (!arr.length) {
-    return;
-  }
-  ref = arr.shift(), timeout = ref[0], user_fun = ref[1];
-  fun = (function(_this) {
-    return function() {
-      user_fun();
-      return exports.<span class="apidocCodeKeywordSpan">timeout_chain</span>(arr);
-    };
-  })(this);
-  return setTimeout(fun, timeout);
-};
-
-exports.objectExtend = function(dst, src) {
-  var k;
+    try {
+      return res.write(payload + &#x27;\n&#x27;);
+    } catch (error) {
+      x = error;
+    }
+  };
+})(this);
+utils.<span class="apidocCodeKeywordSpan">timeout_chain</span>([
+  [
+    0, (function(_this) {
+      return function() {
+        return write(&#x27;h&#x27;);
+      };
+    })(this)
+  ], [
 ...</pre></li>
     </ul>
 
@@ -1084,7 +1130,24 @@ exports.objectExtend = function(dst, src) {
     }
   };
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  this.options = options1;
+  this.handler = bind(this.handler, this);
+  this.app = new App();
+  this.app.options = this.options;
+  this.app.emit = emit;
+  this.app.log(&#x27;debug&#x27;, &#x27;SockJS v&#x27; + sockjsVersion() + &#x27; &#x27; + &#x27;bound to &#x27; + JSON.stringify
+(this.options.prefix));
+  this.dispatcher = generate_dispatcher(this.options);
+  this.webjs_handler = webjs.<span class="apidocCodeKeywordSpan">generateHandler</span>(this.app, this.dispatcher);
+  this.path_regexp = new RegExp(&#x27;^&#x27; + this.options.prefix + &#x27;([/].+|[/]?)$&#x27;);
+}
+
+Listener.prototype.handler = function(req, res, extra) {
+  if (!req.url.match(this.path_regexp)) {
+    return false;
+  }
+...</pre></li>
     </ul>
 
 
